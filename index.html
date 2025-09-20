@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Заказ наклеек</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Выберите вид наклеек</h1>
+</header>
+
+<section class="types">
+  <div class="type-card">
+    <img src="dtf.jpeg" alt="Термо наклейка">
+    <h3>Термо наклейка</h3>
+    <p>(для одежды, тканей)</p>
+    <p>Цена: 
+1 лист 400 сом - 40 шт наклеек 
+0,5 лист 300 сом - 20 шт наклеек  
+_
+* На 1 лист 1 имя 
+* Срок изготовления 2-4 рабочих дней</p>
+    <button class="btn-main" onclick="showForm('Термо наклейка (для одежды, тканей)')">Заказать</button>
+  </div>
+  <div class="type-card">
+    <img src="vinyl.jpeg" alt="Для канцелярии">
+    <h3>Для канцелярии</h3>
+    <p>(для тетрадей, ручек)</p> 
+    <p>Цена: 
+400 сом 1 лист
+(на листе 78 шт наклеек) 
+33 шт больших 
+45 шт маленьких 
+_
+* На 1 лист 1 имя 
+* Срок изготовления 2-4 рабочих дней</p>
+    <button class="btn-main" onclick="showForm('Для канцелярии (для тетрадей, ручек)')">Заказать</button>
+  </div>
+</section>
+
+<section class="form-section" id="formSection">
+  <div id="formsContainer">
+    <div class="order-form">
+      <label>Имя ребёнка:</label>
+      <input type="text" class="childName" placeholder="Введите имя">
+
+      <label>Выберите картинку:</label>
+      <button type="button" class="btn-no-image">Без картинки</button>
+      <div class="gallery">
+        <img src="img1.jpg" data-num="1">
+        <img src="img2.jpg" data-num="2">
+        <img src="img3.jpg" data-num="3">
+        <img src="img4.jpg" data-num="4">
+        <img src="img5.jpg" data-num="5">
+        <img src="img6.jpg" data-num="6">
+        <img src="img7.jpg" data-num="7">
+        <img src="img8.jpg" data-num="8">
+        <img src="img9.jpg" data-num="9">
+        <img src="img10.jpg" data-num="10">
+        <img src="img11.jpg" data-num="11">
+        <img src="img12.jpg" data-num="12">
+        <img src="img13.jpg" data-num="13">
+        <img src="img14.jpg" data-num="14">
+        <img src="img15.jpg" data-num="15">
+        <img src="img16.jpg" data-num="16">
+        <img src="img17.jpg" data-num="17">
+        <img src="img18.jpg" data-num="18">
+        <!-- ... до 18 -->
+      </div>
+
+      <label>Вид наклейки:</label>
+      <div class="type-buttons">
+        <button type="button" class="type-btn btn-dtf" data-type="Термо наклейка (для одежды, тканей)">
+          Термо<br><span style="font-weight:normal; font-size:13px;">(для одежды, тканей)</span>
+        </button>
+        <button type="button" class="type-btn btn-vinyl" data-type="Для канцелярии (для тетрадей, ручек)">
+          Канцелярия<br><span style="font-weight:normal; font-size:13px;">(для тетрадей, ручек)</span>
+        </button>
+      </div>
+
+      <!-- кол-во для термо (показывается только для термо) -->
+      <label>Количество (для термо):</label>
+      <div class="qty-container" style="display:none; gap:8px; margin-top:6px;">
+        <button type="button" class="qty-btn" data-qty="20">20 шт</button>
+        <button type="button" class="qty-btn" data-qty="40">40 шт</button>
+      </div>
+
+      <label>Цвет шрифта:</label>
+      <div class="color-palette"></div>
+
+      <label>Так будут выглядеть ваши наклейки</label>
+      <div class="preview-wrapper">
+        <div class="preview termo">
+          <img src="" class="preview-img">
+           <span class="preview-name">Имя</span>
+         </div>
+      </div>
+
+    </div> <!-- конец .order-form -->
+  </div> <!-- конец #formsContainer -->
+
+  <!-- ВОССТАНОВЛЕННЫЙ БЛОК ОТОБРАЖЕНИЯ ЦЕНЫ -->
+  <div class="price-summary" style="max-width:600px;margin:12px auto;padding:12px;text-align:center;background:#fff;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.05);">
+    <strong style="font-size:18px;">Итог:</strong>
+    <div style="margin-top:8px;font-size:20px;">
+      <span id="totalPrice">0 сом</span>
+      <div id="totalInfo" style="font-size:13px;color:#666;margin-top:6px;">
+        <!-- информация о скидке / листах (заполняется JS) -->
+      </div>
+    </div>
+  </div>
+  <!-- КОНЕЦ БЛОКА ОТОБРАЖЕНИЯ ЦЕНЫ -->
+
+  <button class="btn btn-add" onclick="addForm()">Добавить ещё</button>
+  <button class="btn" onclick="sendOrder()">Заказать</button>
+</section>
+
+<script src="main.js">
+
+</script>
+</body>
+</html>

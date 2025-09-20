@@ -1,0 +1,447 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: #f5f7fa;
+  color: #333;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.type-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  width: 300px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.type-card:hover {
+  transform: translateY(-4px);
+}
+
+.type-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.btn-main {
+  background: #4CAF50;
+  color: #fff;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.btn-main:hover {
+  background: #43a047;
+}
+
+.form-section {
+  padding: 20px;
+  display: none;
+  max-width: 600px;
+  margin: auto;
+}
+
+.order-form {
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+input {
+
+  padding: 12px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.gallery img.selected {
+  border-color: #4CAF50;
+}
+
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.color-option {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+.color-option.selected {
+  border-color: #000;
+}
+
+.type-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Базовый вид кнопок типа */
+.type-btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.1;
+  text-align: center;
+  transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease, filter 150ms ease;
+  transform-origin: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 110px;
+}
+
+/* индивидуальные фоны для каждой кнопки типа */
+.type-btn.btn-dtf {
+  background: linear-gradient(180deg, #fff3e6, #ffe6cc);
+  border-color: rgba(255,140,0,0.12);
+  color: #4b2e00;
+}
+
+.type-btn.btn-vinyl {
+  background: linear-gradient(180deg, #e8f4ff, #d7ebff);
+  border-color: rgba(0,120,215,0.12);
+  color: #013a63;
+}
+
+/* Внешний вид не выбранных — чуть серее */
+.type-btn:not(.selected) {
+  opacity: 0.85;
+  filter: grayscale(12%);
+}
+
+/* Выбранная кнопка — крупнее, ярче, с тенью (интенсивный вариант для каждого типа) */
+.type-btn.selected {
+  transform: scale(1.06);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  opacity: 1;
+  border-color: rgba(0,0,0,0.12);
+}
+
+/* усиленный фон для выбранных по типу */
+.type-btn.btn-dtf.selected {
+  background: linear-gradient(180deg, #ffd7b3, #ffc28a);
+}
+
+.type-btn.btn-vinyl.selected {
+  background: linear-gradient(180deg, #cfe8ff, #b6dcff);
+}
+
+/* Поддержка для маленького описания в span */
+.type-btn span {
+  font-weight: 400;
+  font-size: 13px;
+  color: #444;
+}
+
+/* hover для подсказки при наведении */
+.type-btn:hover { 
+  transform: scale(1.03);
+}
+
+/* Для термо: картинка 20%, текст 80% */
+.preview.termo img {
+  width: 70px;
+  height: auto;
+  margin-right: 5px;
+  padding-left: 10px;
+  display: block;
+}
+
+.preview.termo span {
+  flex: 1;
+  font-weight: 700;
+  font-size: 25px;
+  word-break: break-word;
+  line-height: 1.1;
+  text-align: center;
+
+}
+
+/* Для канцелярии: скрыть картинку, текст занимает всё */
+.preview.vinyl img {
+  display: none;
+}
+
+.preview.vinyl span {
+  flex: 1;
+  font-weight: 700;
+  font-size: 35px;
+  word-break: break-word;
+  line-height: 1.1;
+  text-align: center;
+
+  text-shadow: 5px 4px 5px #CECECE;
+
+
+
+}
+
+
+.btn {
+  background: #4CAF50;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 12px;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #43a047;
+}
+
+.btn-add {
+  background: #3498db;
+}
+
+.btn-add:hover {
+  background: #2e86c1;
+}
+.btn-no-image {
+  margin-top: 10px;
+  background: #777;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.btn-no-image:hover {
+  background: #555;
+}
+.preview.no-image img {
+  display: none;
+}
+
+.preview.no-image span {
+  flex: 1;
+  font-size: 24px;
+  font-weight: 700;
+  word-break: break-word;
+}
+.preview-img {
+  width: 70px;
+  height: auto;
+  margin-right: 5px;
+  border-radius: 4px;
+  display: block;
+}
+/* Общий контейнер предпросмотра */
+.preview-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Основной предпросмотр */
+.preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fafafa;
+  overflow: hidden;
+  
+}
+
+/* Для термо: 1:4 */
+.preview.термо {
+  width: 400px;   /* 4 */
+  height: 100px;   /* 1 */
+}
+
+/* Для канцелярии: 1.5:6 */
+.preview.vinyl {
+  width: 400px;   /* 6 */
+  height: 100px;   /* 1.5 */
+}
+
+/* Маленький клон для канцелярии: 1:4 */
+.preview.vinyl-clone {
+  width: 160px;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.preview.vinyl {
+  background-image: url("kans.jpg") !important;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Стили для выбора количества (qty) — такие же интерактивные как type-btn */
+.qty-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+  align-items: center;
+}
+
+.qty-btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease, filter 150ms ease;
+  transform-origin: center;
+  min-width: 78px;
+}
+
+/* Невыбранные чуть серее */
+.qty-btn:not(.selected) {
+  opacity: 0.85;
+  filter: grayscale(12%);
+}
+
+/* Выбранная кнопка — крупнее, ярче, с тенью */
+.qty-btn.selected {
+  transform: scale(1.06);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  opacity: 1;
+  border-color: rgba(0,0,0,0.12);
+  background: linear-gradient(180deg, #ffd7b3, #ffc28a);
+  color: #4b2e00;
+}
+
+/* hover для подсказки при наведении */
+.qty-btn:hover {
+  transform: scale(1.03);
+}
+
+/* фокус клавиатурой */
+.qty-btn:focus {
+  outline: 3px solid rgba(0,123,255,0.12);
+  outline-offset: 2px;
+}
+
+/* Дополнительные правила: поддержка как "termo" (latin), так и "термо" (cyr) */
+/* Центрирование, жирный шрифт и отступ между картинкой и текстом */
+.preview.termo img,
+.preview.термо img {
+  width: 70px;
+  height: auto;
+  margin-right: 14px; /* больше отступа между картинкой и текстом */
+  display: block;
+}
+
+.preview.termo .preview-name,
+.preview.термо .preview-name,
+.preview.termo span,
+.preview.термо span {
+  flex: 1;
+  font-weight: 700;       /* жирный */
+  font-size: 25px;
+  line-height: 1.1;
+  text-align: center;     /* по центру по горизонтали */
+  display: flex;
+  align-items: center;    /* по центру по вертикали */
+  justify-content: center;
+  word-break: break-word;
+}
+
+/* Убедиться, что контейнер превью центрирует содержимое */
+.preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+/* Гарантировать фиксированный размер для термо-превью (оба варианта класса) */
+.preview.termo,
+.preview.термо {
+  width: 400px;
+  height: 100px;
+}
